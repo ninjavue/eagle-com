@@ -1,0 +1,39 @@
+.auth{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    flex-direction: column;
+    & .va-card{
+        min-width: 400px;
+        padding: 50px 30px;
+        & h2{
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    }
+    &-progress{
+        position: absolute;
+        top: 2px;
+        left: 0;
+    }
+}
+.flex{
+    display: flex;
+}
+.flex-col{
+    flex-direction: column;
+}
+.gap-2{
+    gap: 20px;
+}
+
+.auth-link{
+    text-decoration: underline;
+    color: #2338f3;
+    cursor: pointer;
+    &:hover{
+        color: red;
+    }
+}
+

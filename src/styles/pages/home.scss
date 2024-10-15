@@ -1,0 +1,72 @@
+.home{
+    width: 100%;
+    height: auto;
+}
+
+.cursel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+    background-image: url(@/assets/img/curusel.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    &-form{
+        position: relative;
+        display: flex;
+        width: 700px;
+        justify-content: center;
+        align-items: center;
+        
+        & input{
+            background: white;
+            color: gray !important;
+            height: 60px;
+            display: block;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            outline: none;
+            flex: 1;
+            border-right: none;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            &:focus{
+                border: 2px solid rgb(255, 123, 0);
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(255, 0, 0, .6);
+                & > button{
+                    border: 2px solid rgb(255, 123, 0); 
+                }
+            }
+        }
+        & button{
+            width: 60px;
+            height: 60px;
+            border: 1px solid rgb(255, 123, 0);
+            border-left: none;
+            outline: none;
+            background-color: rgb(255, 123, 0);
+            border-radius: .25rem;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            cursor: pointer;
+            &:hover{
+                background-color: darken($color:  rgb(255, 123, 0), $amount: 10);
+                border: 2px solid darken($color:  rgb(255, 123, 0), $amount: 10);
+            }
+            & i{
+                font-size: 20px;
+                color: #fff;
+            }
+        }
+    }
+}

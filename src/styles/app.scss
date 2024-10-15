@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import './color.scss';
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Roboto", sans-serif;
+    background-color: #dbdada;
+}
+
+.container{
+    max-width: 98%;
+    margin: 0 auto;
+}
+.relative{
+    position: relative;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-3{
+    width: 25%;
+}
+.col-9{
+    width: 75%;
+}
+.col-7{
+    width: 58.33%;
+}
+.col-5{
+    width: 41.66%;
+}
+.col-6{
+    width: 50%;
+}
+.col-12{
+    width: 100%;
+}
+.mt-3{
+    margin-top: 30px;
+}
+.mt-10{
+    margin-top: 10px;
+}
+.mt-20{
+    margin-top: 20px;
+}
+.mr-5{
+    margin-right: 10px;
+}
+.ml-50{
+    margin-left: 50px;
+}
+.d-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gap-30{
+    gap: 30px;
+}
+.d-flex{
+    display: flex;
+}
+.align-center{
+    align-items: center;
+}
+.text-right{
+    text-align: left;
+}
+.justify-between{
+    justify-content: space-between;
+}
+.justify-center{
+    justify-content: center;
+}
+.mb-30{
+    margin-bottom: 30px;
+}
+
+.ml-a{
+    margin-left: auto;
+}
+.col-5,
+.col-6{
+    & label{
+        width: 100%;
+        color: blue;
+        font-size: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    & select{
+        width: 100%;
+        font-size: 16px;
+        border: 1px solid rgb(180, 180, 255);
+        padding: 7px 5px;
+        border-radius: 5px;
+        margin-top: 5px;
+        
+    }
+}
+
+.mt-a{
+    margin-top: auto;
+}
+
+.flex .va-pagination {
+    display: block;
+}

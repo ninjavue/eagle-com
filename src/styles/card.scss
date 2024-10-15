@@ -1,0 +1,112 @@
+.card1{
+    margin: 50px 0;
+    & h1{
+        margin-bottom: 20px;
+        color: rgb(255, 123, 0);
+    }
+    &-box{
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 20px;
+        position: relative;
+        & span{
+            position: absolute;
+            top: 5px;
+            left: 4.5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px 30px;
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+            display: none;
+            border-top-left-radius: 8px;
+            padding-bottom: 40px;
+            z-index: 2;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 0 40px 40px; 
+                border-color: transparent transparent #007bff transparent;
+                z-index: -1;
+            }
+            & p{
+                position: absolute;
+                top: 6px;
+                left: 6px;
+            }
+        }
+        &.fourk{
+          & span{
+            display: block;
+          }
+
+        }
+        &.fivek{
+          & span{
+            display: block;
+            background-color: #f817c0; 
+            &::before{
+                border-color: transparent transparent #f817c0; 
+            }
+          }
+
+        }
+        &.eatk{
+          & span{
+            display: block;
+            background-color: #f86808; 
+            &::before{
+                border-color: transparent transparent #f86808; 
+            }
+          }
+
+        }
+        
+    }
+    &-img{
+        width: 100%;
+        height: 190px;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        position: relative;
+        & .action{
+            position: absolute;
+            bottom: 5px;
+            right: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            & .like{
+                display: flex;
+                gap: 5px;
+                color: #fff;
+                
+            }
+        }
+        & img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &-title{
+        font-size: 18px;
+        color: rgb(54, 54, 54);
+        border: 1px solid rgb(207, 207, 207);
+        padding: 20px 10px;
+        margin-top: 20px;
+        border-radius: 8px;
+        font-weight: 400;
+        text-align: center;
+        cursor: pointer;
+        background-color: #fff;
+    }
+}

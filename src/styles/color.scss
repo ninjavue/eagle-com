@@ -1,0 +1,15 @@
+/* Light mode (default) */
+:root {
+    --background-color: white;
+    --text-color: black;
+    --button-bg-color: #007bff;
+    --button-text-color: white;
+}
+
+/* Dark mode variables */
+.dark-mode :root {
+    --background-color: #121212;
+    --text-color: white;
+    --button-bg-color: #f1c40f;
+    --button-text-color: black;
+}

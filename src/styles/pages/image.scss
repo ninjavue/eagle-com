@@ -1,0 +1,87 @@
+.photo{
+    margin-top: 50px;
+    &-img{
+        width: 100%;
+        height: 330px;
+        border-radius: 10px;
+        overflow: hidden;
+        & img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &-box{
+        margin-left: 20px;
+        border: 1px solid #ccc;
+        width: 100%;
+        height: 330px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        &-title{
+            font-size: 20px;
+            font-weight: 600;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ccc;
+            margin-bottom: 10px;
+        }
+        &-text{
+            font-size: 16px;
+            padding-top: 8px;
+            & a{
+                color: hsl(22, 94%, 49%);
+                text-decoration: none;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+.mt-30{
+    margin-top: 20px;
+}
+.category-bars{
+    margin-top: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    color: #333;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    margin-left: 8px;
+    & a{
+        color: hsl(22, 94%, 49%);
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+.btn-group{
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    & a,
+    & .btn{
+        background: hsl(22, 94%, 49%);
+        padding: 10px 20px;
+        border-radius: 6px;
+        color: #fff;
+        border: none;
+        outline: none;
+        font-size: 20px;
+        cursor: pointer;
+        text-transform: uppercase;
+        border-bottom: 2px solid hsl(22, 95%, 42%);
+        &:hover{
+            background: darken($color: hsl(22, 94%, 49%), $amount: 10);
+        }
+    }
+}
