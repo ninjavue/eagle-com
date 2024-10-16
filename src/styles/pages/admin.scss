@@ -37,7 +37,13 @@ a {
         }
     }
 }
-
+.va-input-label{
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 8px;
+    margin-top: 15px;
+}
 .dark-mode .va-data-table .va-data-table__table{
     color: white;
 }
@@ -61,4 +67,23 @@ a {
 }
 .dark .va-input__content__input{
     color: white;
+}
+
+.dark .va-modal__header{
+    color: white !important;
+}
+
+.dark .va-input-label{
+    color: white !important;
+}
+
+.dark .col-5 label, .dark .col-6 label{
+    color: white !important;
+}
+.dark .col-5 select, .dark .col-6 select{
+    color: white !important;
+}
+.dark .col-5 select option, .dark .col-6 select option{
+    color: white !important;
+    background: #333;
 }

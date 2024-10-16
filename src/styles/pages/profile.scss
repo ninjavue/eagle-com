@@ -1,5 +1,7 @@
 .account {
   &-info {
+    position: sticky;
+    top: 40px;
     margin-bottom: 50px;
     display: flex;
     align-items: center;
@@ -8,7 +10,6 @@
     min-height: 60vh;
     border-radius: 8px;
     background-color: #fff;
-    position: relative;
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 
@@ -138,6 +139,15 @@
   }
 }
 
+.relative{
+  position: relative;
+  height: auto;
+}
+
+.textarea-p .va-textarea__textarea.va-textarea__textarea--autosize{
+  min-height: 100px;
+}
+
 .dark-mode {
   & .account-info {
     background-color: #333;
@@ -149,3 +159,4 @@
     color: #eceaea;
   }
 }
+

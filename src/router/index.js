@@ -6,7 +6,6 @@ import store from '../store'
 import AdminView from '../views/AdminView.vue'
 import MainView from '@/views/MainView.vue'
 import AuthView from '@/views/AuthView.vue'
-import ProfileView from '@/views/ProfileView.vue'
 
 const routes = [
   {
@@ -53,7 +52,7 @@ const routes = [
       {
         path: '/account',
         name: 'account',
-        component: ProfileView,
+        component: () => import(/* webpackChunkName: "search" */ '../views/ProfileView.vue'),
       }
     ]
   },
@@ -114,21 +113,24 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   // Authentication
-  store.dispatch('setLoading', true)
+  store.dispatch('setLoading', true);
   const cookieToken = VueCookies.get('accessToken');
   const rToken = VueCookies.get('r_token');
   const localStorageToken = localStorage.getItem('eagle_token');
+
   if (to.path.startsWith('/admin')) {
     store.dispatch('setLoading', false);
   }
-  if (!localStorageToken && !rToken && !cookieToken && to.meta.requiresAuth) {
+
+  if ((!localStorageToken || !rToken || !cookieToken) && to.meta.requiresAuth) {
     next({ name: 'auth' });
-  }else if (localStorageToken && rToken && cookieToken && to.name === 'auth') {
+  } else if (localStorageToken && rToken && cookieToken && to.name === 'auth') {
     next({ name: 'admin' });
   } else {
     next();
   }
 });
+
 
 router.afterEach(() => {
   setTimeout(() => {

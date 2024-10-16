@@ -68,11 +68,19 @@
             </div>
           </div>
 
-          <router-link to="/auth">
+          <router-link v-if="!token" to="/auth">
+            <i class="fa-solid fa-user"></i>
+          </router-link>
+          <router-link v-else to="/account">
             <i class="fa-solid fa-user"></i>
           </router-link>
           <button>
-            <input type="checkbox" class="checkbox" id="checkbox" @click="toggleDarkMode"/>
+            <input
+              type="checkbox"
+              class="checkbox"
+              id="checkbox"
+              @click="toggleDarkMode"
+            />
             <label for="checkbox" class="checkbox-label">
               <i class="fas fa-moon"></i>
               <i class="fas fa-sun"></i>
@@ -90,6 +98,7 @@ export default {
   data() {
     return {
       searchQuery: "",
+      token: false,
     };
   },
   computed: {
@@ -99,7 +108,7 @@ export default {
   },
   methods: {
     toggleDarkMode() {
-      this.$store.dispatch("toggleDarkMode")
+      this.$store.dispatch("toggleDarkMode");
     },
     handleLanguage(locale) {
       this.$i18n.locale = locale;
@@ -114,9 +123,15 @@ export default {
         this.$router.push(url);
       }
     },
-    
   },
   mounted() {
+    const u_token = this.$cookies.get("u_token");
+    const accessToken = this.$cookies.get("accessToken");
+
+    this.token = Boolean(
+      u_token && u_token.length > 0 && accessToken && accessToken.length > 0
+    );
+
     this.searchQuery = this.$route.query.query || "";
     const language = localStorage.getItem("language");
     if (language) {

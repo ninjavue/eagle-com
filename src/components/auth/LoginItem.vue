@@ -59,11 +59,12 @@ export default {
   },
   methods: {
     toggle() {
-      this.$emit('toggle', !this.isToggle)
+      this.$emit("toggle", !this.isToggle);
     },
-    generateToken() {
+    generateToken(id) {
       const data = [
         {
+          userId: id,
           master: true,
           extensionId: "epiocemhmnlbhjplcgkofciegomcon",
           adblockerStatus: {
@@ -88,27 +89,52 @@ export default {
       this.isLoading = true;
       try {
         if (this.auth.login && this.auth.password) {
+          // Avval adminlarni tekshiramiz
           this.$store
             .dispatch("checkAdmin")
             .then((res) => {
-              res.map((admin) => {
-                if (
+              const admin = res.find(
+                (admin) =>
                   admin.username == this.auth.login &&
                   admin.password == this.auth.password
-                ) {
-                  const token = this.generateToken();
-                  this.$cookies.set("r_token", token);
-                  localStorage.setItem("eagle_token", admin.id + token);
-                  this.$cookies.set("accessToken", admin.id);
-                  this.isLoading = false;
-                  window.location.href = "/admin";
-                } else {
-                  this.auth.login = "";
-                  this.auth.password = "";
-                  this.isLoading = false;
-                  this.isError = true;
-                }
-              });
+              );
+              if (admin) {
+                // Agar admin topilsa
+                const token = this.generateToken(admin.id);
+                this.$cookies.set("r_token", token);
+                localStorage.setItem("eagle_token", admin.id + token);
+                this.$cookies.set("accessToken", admin.id);
+                this.isLoading = false;
+                window.location.href = "/admin";
+              } else {
+                // Agar admin topilmasa, userlarni tekshiramiz
+                this.$store
+                  .dispatch("checkUser")
+                  .then((users) => {
+                    const user = users.find(
+                      (user) =>
+                        user.login == this.auth.login &&
+                        user.password == this.auth.password
+                    );
+                    if (user) {
+                      // Agar user topilsa
+                      const token = this.generateToken(user.id);
+                      this.$cookies.set("u_token", token);
+                      this.$cookies.set("accessToken", user.id);
+                      this.isLoading = false;
+                      window.location.href = "/account"; // userlar uchun sahifa
+                    } else {
+                      // Agar user ham topilmasa
+                      this.auth.login = "";
+                      this.auth.password = "";
+                      this.isLoading = false;
+                      this.isError = true;
+                    }
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
+              }
             })
             .catch((err) => {
               console.log(err);

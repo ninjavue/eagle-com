@@ -6,5 +6,7 @@
     "home": "Bosh sahifa",
     "my-account": "Mening hisobim",
     "add-photo": "Rasm qo'shish",
-    "close": "Yopish"
+    "close": "Yopish",
+    "likedPhoto": "Bu surat siz allaqachon like bosgansiz.",
+    "likedPhoto1": "Endi bu surat sizga yoqdi."
 }

@@ -98,9 +98,9 @@ body{
     & label{
         width: 100%;
         color: blue;
-        font-size: 10px;
-        font-weight: bold;
-        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: normal;
+        margin-top: 15px;
     }
     & select{
         width: 100%;
@@ -109,6 +109,7 @@ body{
         padding: 7px 5px;
         border-radius: 5px;
         margin-top: 5px;
+        background: transparent;
         
     }
 }
@@ -131,6 +132,10 @@ body{
 .dark .va-modal__dialog{
     background-color: #333 !important;
 }
+
+.dark .va-textarea__textarea.va-textarea__textarea--autosize{
+    color: white !important;
+  }
 
 
 @media(max-width: 1024px){

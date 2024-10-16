@@ -50,7 +50,7 @@
       </tr>
     </template>
   </VaDataTable>
-  <VaModal v-model="showModal" hide-default-actions overlay-opacity="0.2" blur>
+  <VaModal v-model="showModal" hide-default-actions overlay-opacity="0.2" blur :class="isDarkMode?'dark':''" >
     <template #header>
       <h2>Category qo'shish</h2>
     </template>
@@ -128,6 +128,9 @@ export default defineComponent({
   },
 
   computed: {
+    isDarkMode() {
+      return this.$store.getters.isDarkMode;
+    },
     pages() {
       return this.perPage && this.perPage !== 0
         ? Math.ceil(this.filtered.length / this.perPage)
@@ -253,6 +256,7 @@ export default defineComponent({
       }
     },
     editRow(row) {
+      this.$store.dispatch("getProducts");
       this.$store
         .dispatch("getByIdCategory", row.id)
         .then((res) => {

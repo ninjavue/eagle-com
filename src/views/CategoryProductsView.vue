@@ -35,7 +35,7 @@ export default {
     },
     computed:{
       products(){
-        return this.$store.getters.products
+        return this.$store.getters.products.filter(product => product.status && product.categoryId === this.id);
       }
     },
     mounted(){
@@ -43,7 +43,7 @@ export default {
       this.title = this.$route.params.title;
       document.title = this.title?.charAt(0).toUpperCase() + this.title?.slice(1)
       if(this.id){
-        this.$store.dispatch("getCategoryWithProduct", this.id)
+        this.$store.dispatch("getProducts")
       }
     }
 }

@@ -6,5 +6,7 @@
     "home": "Home",
     "my-account": "My Account",
     "add-photo": "Add Photo",
-    "close": "Close"
+    "close": "Close",
+    "likedPhoto": "You have already liked this photo.",
+    "likedPhoto1": "Now you like this photo."
 }

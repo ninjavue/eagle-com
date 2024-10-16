@@ -80,7 +80,7 @@
       </main>
     </template>
   </VaLayout>
-  <VaModal v-model="showModal" hide-default-actions overlay-opacity="0.2" blur>
+  <VaModal v-model="showModal" hide-default-actions overlay-opacity="0.2" blur >
     <template #header>
       <h3 class="text-danger">Diqqat <VaIcon name="warning" /></h3>
     </template>
@@ -171,6 +171,7 @@ export default {
   methods: {
     handleLogout() {
       this.$cookies.remove("accessToken");
+      this.$cookies.remove("r_token");
       localStorage.removeItem("eagle_token");
       this.showModal = false;
       window.location.reload();

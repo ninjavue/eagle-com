@@ -146,6 +146,7 @@
       }
     },
     mounted() {
+      this.$store.dispatch("getProducts")
       this.$store.dispatch("getUserWithProduct", this.$route.params.id || '');
       this.getUser()
       if (window.screen.height >= 1080) {
