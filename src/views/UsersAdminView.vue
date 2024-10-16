@@ -68,7 +68,7 @@ export default defineComponent({
       { key: "N", sortable: true, width: "30px" },
       { key: "img", sortable: true, width: "80px" },
       { key: "full_name", sortable: true, width: "200px" },
-      { key: "username", sortable: true, width: "150px" },
+      { key: "login", sortable: true, width: "150px" },
       { key: "status", width: "100px" },
       { key: "like", sortable: true, width: "100px" },
       { key: "download", sortable: true, width: "150px" },
@@ -109,7 +109,7 @@ export default defineComponent({
           like: type.likes.length,
           download: type.downloads.length,
           N: index + 1,
-          date: this.formatDate(type.craeted_at),
+          date: this.formatDate(type.created_at),
         };
       });
 

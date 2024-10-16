@@ -89,6 +89,7 @@
                 display: flex;
                 gap: 5px;
                 color: #fff;
+                text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
                 
             }
         }
@@ -108,5 +109,12 @@
         text-align: center;
         cursor: pointer;
         background-color: #fff;
+    }
+}
+
+.dark-mode{
+    & .card1-title{
+        background-color: #333;
+        color: rgb(216, 212, 212);
     }
 }

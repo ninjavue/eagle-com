@@ -95,4 +95,13 @@ export default {
     }
   }
 }
+
+.dark-mode .dashboard-card{
+  background: #444343 !important;
+  color: white !important;
+}
+.dark-mode .dashboard-card-cnt,
+.dark-mode .dashboard-card-title{
+  color: white !important;
+}
 </style>

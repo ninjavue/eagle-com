@@ -18,6 +18,14 @@
         </template>
         <template #right>
           <div style="display: flex; gap: 20px; margin-right: 30px">
+            <button style="background: transparent; border:none;">
+            <input type="checkbox" class="checkbox" id="checkbox" @click="toggleDarkMode"/>
+            <label for="checkbox" class="checkbox-label">
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+              <span class="ball"></span>
+            </label>
+          </button>
             <router-link to="/">
               <VaButton icon="home" round color="secondary" />
             </router-link>
@@ -35,6 +43,7 @@
                 @click="showNewProduct = !showNewProduct"
               />
             </VaBadge>
+            
           </div>
         </template>
       </VaNavbar>
@@ -89,13 +98,14 @@
     fullscreen
     hide-default-actions
     style="position: fixed"
+    :class="isDarkMode?'dark':''"
   >
     <NewProduct />
     <VaButton
       @click="showNewProduct = false"
       color="danger"
       style="position: fixed; bottom: 20px; right: 40px"
-      >Yopish</VaButton
+      >{{$t('close')}}</VaButton
     >
   </VaModal>
 </template>
@@ -135,6 +145,9 @@ export default {
     };
   },
   computed: {
+    isDarkMode() {
+      return this.$store.getters.isDarkMode;
+    },
     types() {
       const typesWithNumbers = this.$store.getters.products
         .map((type, index) => {
@@ -161,6 +174,9 @@ export default {
       localStorage.removeItem("eagle_token");
       this.showModal = false;
       window.location.reload();
+    },
+    toggleDarkMode() {
+      this.$store.dispatch("toggleDarkMode")
     },
   },
   mounted() {

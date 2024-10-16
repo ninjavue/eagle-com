@@ -2,7 +2,7 @@
   <div class="card1">
     <h1 style="text-transform: capitalize ">{{ title }}</h1>
     <div class="row">
-        <div class="col-3" v-for="item,i of products" :key="i">
+        <div class="col-3 col-xl-4 col-lg-6 col-md-12" v-for="item,i of products" :key="i">
             <div :class="['card1-box', item.quality === '4k' || item.quality === '4K' ? 'fourk' : '', item.quality === '5k' || item.quality === '5K' ? 'fivek' : '', item.quality === '8k' || item.quality === '8K' ? 'eatk' : '']">
                 <span>
                     <p style="text-transform:uppercase">{{item.quality}}</p>

@@ -16,10 +16,11 @@
                 :to="`/categories/${category.title}/${category.id}`"
                 class="category-card"
               >
-                <div  v-if="!imageLoaded"  class="load_img" >
-                  <img :src="require('@/assets/img/empty-photo.png')"
-                  alt="loading"
-                />
+                <div v-if="!imageLoaded" class="load_img">
+                  <img
+                    :src="require('@/assets/img/empty-photo.png')"
+                    alt="loading"
+                  />
                 </div>
 
                 <img
@@ -59,8 +60,8 @@ export default {
   },
   methods: {
     onImageLoad() {
-    this.imageLoaded = true
-  },
+      this.imageLoaded = true;
+    },
   },
   mounted() {
     document.title = "Categories - Eagle.com";
@@ -71,9 +72,9 @@ export default {
 
 <style lang="scss">
 @import "@/styles/pages/categories.scss";
-.load_img{
-  width: 100%; 
-  height: 180px; 
+.load_img {
+  width: 100%;
+  height: 180px;
   border: 1px solid #ccc;
   border-bottom: 0;
   border-top-left-radius: 8px;
@@ -81,7 +82,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  & img{
+  & img {
     width: 70%;
   }
 }

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import VueCookies from 'vue-cookies';
+import store from '../store'
 
 
 import AdminView from '../views/AdminView.vue'
@@ -18,14 +19,14 @@ const routes = [
   },
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/',
     meta: {
       requiresAuth: false
     },
     component: MainView,
     children: [
       {
-        path: '/home',
+        path: '/',
         name: 'home',
         component: () => import(/* webpackChunkName: "home" */ '../views/HomeView.vue')
       },
@@ -50,8 +51,8 @@ const routes = [
         component: () => import(/* webpackChunkName: "search" */ '../views/SearchView.vue')
       },
       {
-        path: '/profile',
-        name: 'profile',
+        path: '/account',
+        name: 'account',
         component: ProfileView,
       }
     ]
@@ -109,31 +110,30 @@ const router = createRouter({
   routes
 })
 
-// Authentication
-
-const isAuthenticated = () => {
-  const cookieToken = VueCookies.get('accessToken');
-  const rToken = VueCookies.get('r_token');
-  const localStorageToken = localStorage.getItem('eagle_token');
-
-  return !!cookieToken && !!localStorageToken && !!rToken;
-};
 
 
 router.beforeEach((to, from, next) => {
-  const isLoggedIn = isAuthenticated();
-  const uToken = localStorage.getItem('u_token');
-  if (!uToken && to.path === '/profile') {
+  // Authentication
+  store.dispatch('setLoading', true)
+  const cookieToken = VueCookies.get('accessToken');
+  const rToken = VueCookies.get('r_token');
+  const localStorageToken = localStorage.getItem('eagle_token');
+  if (to.path.startsWith('/admin')) {
+    store.dispatch('setLoading', false);
+  }
+  if (!localStorageToken && !rToken && !cookieToken && to.meta.requiresAuth) {
     next({ name: 'auth' });
-  } else if (uToken && to.path.startsWith('/admin')) {
-    next({ name: 'profile' });
-  } else if (to.meta.requiresAuth && !isLoggedIn) {
-    next({ name: 'auth' });
-  } else if (isLoggedIn && to.name === 'auth') {
+  }else if (localStorageToken && rToken && cookieToken && to.name === 'auth') {
     next({ name: 'admin' });
   } else {
     next();
   }
+});
+
+router.afterEach(() => {
+  setTimeout(() => {
+    store.dispatch('setLoading', false);
+  }, 1000)
 });
 
 

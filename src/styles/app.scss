@@ -8,6 +8,8 @@
 body{
     font-family: "Roboto", sans-serif;
     background-color: #dbdada;
+    margin-bottom: -50px !important;
+    
 }
 
 .container{
@@ -25,11 +27,17 @@ body{
 .col-3{
     width: 25%;
 }
+.col-4{
+    width: 33.33%;
+}
 .col-9{
     width: 75%;
 }
 .col-7{
     width: 58.33%;
+}
+.col-8{
+    width: 66.66%;
 }
 .col-5{
     width: 41.66%;
@@ -111,4 +119,80 @@ body{
 
 .flex .va-pagination {
     display: block;
+}
+
+.dark-mode p{
+    color: white;
+}
+.dark-mode .va-card {
+    background-color: #333 !important;
+    color: white !important;
+}
+.dark .va-modal__dialog{
+    background-color: #333 !important;
+}
+
+
+@media(max-width: 1024px){
+    .col-xl-3{
+        width: 25%;
+    }
+    .col-xl-4{
+        width: 33.33%;
+    }
+    .col-xl-9{
+        width: 75%;
+    }
+    .col-xl-9{
+        width: 58.33%;
+    }
+    .col-xl-5{
+        width: 41.66%;
+    }
+    .col-xl-6{
+        width: 50%;
+    }
+    .col-xl-12{
+        width: 100%;
+    }
+}
+@media(max-width: 900px){
+    .col-lg-3{
+        width: 25%;
+    }
+    .col-lg-4{
+        width: 33.33%;
+    }
+    .col-lg-9{
+        width: 75%;
+    }
+    .col-lg-5{
+        width: 41.66%;
+    }
+    .col-lg-6{
+        width: 50%;
+    }
+    .col-lg-12{
+        width: 100%;
+    }
+}
+@media(max-width: 570px){
+    .col-md-3{
+        width: 25%;
+    }
+    .col-md-4{
+        width: 33.33%;
+    }
+    .col-md-9{
+        width: 75%;
+    }
+    .col-md-5{
+        width: 41.66%;
+    }
+    .col-md-6{
+        width: 50%;
+    }
+    .col-md-12{
+        width: 100%;
+    }
 }

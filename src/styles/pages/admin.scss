@@ -37,3 +37,28 @@ a {
         }
     }
 }
+
+.dark-mode .va-data-table .va-data-table__table{
+    color: white;
+}
+.dark-mode .admin-link{
+    color: white;
+}
+
+.dark-mode .va-navbar{
+    background-color: #333 !important;
+    color: white !important;
+}
+.dark-mode .va-sidebar{
+    background-color: #333 !important;
+    color: white !important;
+}
+.dark-mode .va-sidebar__item{
+    color: white !important;
+}
+.dark .va-virtual-scroller{
+    color: white !important;
+}
+.dark .va-input__content__input{
+    color: white;
+}
